@@ -98,4 +98,4 @@ let a2=num.filter((a)=>{
 let n1=num.reduce((b,c)=>{
     return b+c;
 })
-console.log(n1);
+//console.log(n1);
