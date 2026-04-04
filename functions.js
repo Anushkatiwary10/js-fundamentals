@@ -102,58 +102,79 @@
 // })
 // //console.log(n1);
 //snake,water and gun game
-alert("connected");
-let play=true;
-while(play){
-   let userChoice=prompt("enter your choice between snake,water and gun");
-   if (userChoice === null) {
-    alert("Game cancelled");
-    break; // exit the loop
-}
-   userChoice=userChoice.toLowerCase().trim();
-   let choices=["snake","water","gun"];
-   let randomIndex=Math.floor(Math.random()*choices.length);
-   let compChoice=choices[randomIndex];
-   alert("Computer chose: " + compChoice);
-   while(userChoice!=="snake" && userChoice!=="water" && userChoice!=="gun"){
-      userChoice=prompt("please enter your choice again");
-      if (userChoice === null) {
-        alert("Game cancelled");
-        break; // exit the loop
-}
-      userChoice=userChoice.toLowerCase().trim();
-   }
-   if(compChoice===userChoice){
-     alert("its a tie");
+// alert("connected");
+// let play=true;
+// while(play){
+//    let userChoice=prompt("enter your choice between snake,water and gun");
+//    if (userChoice === null) {
+//     alert("Game cancelled");
+//     break; // exit the loop
+// }
+//    userChoice=userChoice.toLowerCase().trim();
+//    let choices=["snake","water","gun"];
+//    let randomIndex=Math.floor(Math.random()*choices.length);
+//    let compChoice=choices[randomIndex];
+//    alert("Computer chose: " + compChoice);
+//    while(userChoice!=="snake" && userChoice!=="water" && userChoice!=="gun"){
+//       userChoice=prompt("please enter your choice again");
+//       if (userChoice === null) {
+//         alert("Game cancelled");
+//         break; // exit the loop
+// }
+//       userChoice=userChoice.toLowerCase().trim();
+//    }
+//    if(compChoice===userChoice){
+//      alert("its a tie");
 
-   }
-   else if(compChoice==="snake"){
-      if(userChoice==="water"){
-         alert("loss");
+//    }
+//    else if(compChoice==="snake"){
+//       if(userChoice==="water"){
+//          alert("loss");
 
-      }else{
-         alert("win");
+//       }else{
+//          alert("win");
 
-      }
-   }
-   else if(compChoice==="water"){
-      if(userChoice==="snake"){
-         alert("win");
+//       }
+//    }
+//    else if(compChoice==="water"){
+//       if(userChoice==="snake"){
+//          alert("win");
 
-      }else{
-         alert("loss");
+//       }else{
+//          alert("loss");
     
-      }
-   }
-   else if(compChoice==="gun"){
-      if(userChoice==="snake"){
-         alert("loss");
+//       }
+//    }
+//    else if(compChoice==="gun"){
+//       if(userChoice==="snake"){
+//          alert("loss");
       
-      }else{
-         alert("win");
+//       }else{
+//          alert("win");
             
-      }
-   }
-   play=confirm("do you want to play again");
+//       }
+//    }
+//    play=confirm("do you want to play again");
 
-}
+// }
+const jokes = [
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "Why did the math book look sad? Because it had too many problems.",
+    "Why don't programmers like nature? Too many bugs.",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    "Why did the bicycle fall over? Because it was two-tired!",
+    "Why do Java developers wear glasses? Because they can't C#.",
+    "Why was the computer cold? It left its Windows open!",
+    "Why did the tomato turn red? Because it saw the salad dressing!",
+    "Why did the cookie go to the doctor? Because it felt crummy!",
+    "Why did the chicken join a band? Because it had the drumsticks!"
+];
+
+// Get the div where the joke will appear
+const jokeBox = document.getElementById("joke-box");
+
+// Generate a random index from 0 to jokes.length-1
+const randomIndex = Math.floor(Math.random() * jokes.length);
+
+// Display the random joke
+jokeBox.textContent = jokes[randomIndex];
