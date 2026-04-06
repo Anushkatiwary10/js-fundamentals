@@ -157,6 +157,7 @@
 //    play=confirm("do you want to play again");
 
 // }
+console.log("js file loaded");
 const jokes = [
     "Why don't scientists trust atoms? Because they make up everything!",
     "Why did the math book look sad? Because it had too many problems.",
@@ -170,11 +171,9 @@ const jokes = [
     "Why did the chicken join a band? Because it had the drumsticks!"
 ];
 
-// Get the div where the joke will appear
-const jokeBox = document.getElementById("joke-box");
+function showRandomJoke(){
+     const randomIndex = Math.floor(Math.random() * jokes.length)
+    document.getElementById("jokeBox").innerHTML = jokes[randomIndex]
+}
 
-// Generate a random index from 0 to jokes.length-1
-const randomIndex = Math.floor(Math.random() * jokes.length);
-
-// Display the random joke
-jokeBox.textContent = jokes[randomIndex];
+showRandomJoke();
