@@ -1,16 +1,114 @@
-body{
-    background: beige;
-    padding: 0;
+*{
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background: #0f0f0f;
+    font-family: 'Courier New', Courier, monospace;
 }
 
+.clock-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.clock-face{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.digit-group{
+    display: flex;
+    gap: 4px;
+}
 
-#joke-box {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #333;
+.digit{
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    font-size: 52px;
+    font-weight: 500;
+    height: 80px;
+    width: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+    transition: color 0.1s;
+}
+.digit:active{
+    color: #378ADD;
+}
+.sep{
+    font-size: 44px;
+    font-weight: 500;
+    color: #555;
+    width: 20px;
+    line-height: 80px;
+    text-align: center;
+    user-select: none;
+}
+.sep.blink{
+    animation: blink 1s step-start infinite;
+}
+@keyframes blink{
+    50%{opacity: 0}
+}
+
+.labels{
+    display: flex;
+    gap: 6px;
+}
+.label-group{
+    display: flex;
+    gap: 4px;
+}
+.lbl{
+    width: 62px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 0.08rem;
+    color: #555;
+    text-transform: uppercase;
+}
+.lbl-gap{
+    width: 20px;
+}
+.date-row{
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0.04rem;
+}
+.seconds-bar-wrap{
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.seconds-bar-track{
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
+
+}
+.seconds-bar-fill{
+    height: 100%;
+    background: #185FA5;
+    border-radius: 2px;
+    transition: width 0.9s linear;
+}
+
+.bar-labels{
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #555;
 }

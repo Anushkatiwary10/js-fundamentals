@@ -4,10 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exercise 3</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="jokeBox"></div>
-    <button onclick="showRandomJoke()">new joke</button>
-    <script src="functions.js"></script>
-</body>
+
+      <div class="clock-wrap">
+        <div class="clock-face">
+            <div class="digit-group">
+                <div class="digit" id="h1">0</div>
+                <div class="digit" id="h2">0</div>
+            </div>
+            <div class="sep blink">:</div>
+            <div class="digit-group">
+                <div class="digit" id="m1">0</div>
+                <div class="digit" id="m2">0</div>
+            </div>
+            <div class="sep blink">:</div>
+            <div class="digit-group">
+                <div class="digit" id="s1">0</div>
+                <div class="digit" id="s2">0</div>
+            </div>
+        </div>
+
+      <div class="labels">
+        <div class="label-group">
+            <div class="lbl">Hours</div>
+            <div class="lbl"></div>
+        </div>
+        <div class="lbl-gap"></div>
+        <div class="label-group">
+            <div class="lbl">Min</div>
+            <div class="lbl"></div>
+      </div>
+      <div class="lbl-gap"></div>
+      <div class="label-group">
+           <div class="lbl">Sec</div>
+           <div class="lbl"></div>
+      </div>
+      </div>
+
+      <div class="date-row" id="date-row"></div>
+
+      <div class="seconds-bar-wrap">
+        <div class="seconds-bar-track">
+            <div class="seconds-bar-fill" id="sec-bar" style="width: 0%"></div>
+        </div>
+
+        <div class="bar-labels">
+            <span>0s</span>
+            <span id="sec-label">0 / 60</span>
+            <span>60s</span>
+        </div>
+      </div>
+     </div>
+
+     <script src="functions.js"></script>
+</body> 
 </html>

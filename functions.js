@@ -157,23 +157,84 @@
 //    play=confirm("do you want to play again");
 
 // }
-console.log("js file loaded");
-const jokes = [
-    "Why don't scientists trust atoms? Because they make up everything!",
-    "Why did the math book look sad? Because it had too many problems.",
-    "Why don't programmers like nature? Too many bugs.",
-    "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    "Why did the bicycle fall over? Because it was two-tired!",
-    "Why do Java developers wear glasses? Because they can't C#.",
-    "Why was the computer cold? It left its Windows open!",
-    "Why did the tomato turn red? Because it saw the salad dressing!",
-    "Why did the cookie go to the doctor? Because it felt crummy!",
-    "Why did the chicken join a band? Because it had the drumsticks!"
-];
+// console.log("js file loaded");
+// const jokes = [
+//     "Why don't scientists trust atoms? Because they make up everything!",
+//     "Why did the math book look sad? Because it had too many problems.",
+//     "Why don't programmers like nature? Too many bugs.",
+//     "Why did the scarecrow win an award? Because he was outstanding in his field!",
+//     "Why did the bicycle fall over? Because it was two-tired!",
+//     "Why do Java developers wear glasses? Because they can't C#.",
+//     "Why was the computer cold? It left its Windows open!",
+//     "Why did the tomato turn red? Because it saw the salad dressing!",
+//     "Why did the cookie go to the doctor? Because it felt crummy!",
+//     "Why did the chicken join a band? Because it had the drumsticks!"
+// ];
 
-function showRandomJoke(){
-     const randomIndex = Math.floor(Math.random() * jokes.length)
-    document.getElementById("jokeBox").innerHTML = jokes[randomIndex]
+// function showRandomJoke(){
+//      const randomIndex = Math.floor(Math.random() * jokes.length)
+//     document.getElementById("jokeBox").innerHTML = jokes[randomIndex]
+// }
+
+// showRandomJoke();
+
+// const now=new Date();
+// const h=now.getHours();
+// const m=now.getMinutes();
+// const s=now.getSeconds();
+
+// function pad(n){
+//     return String(n).padStart(2,'0');
+// }
+
+// const hs=pad(h);
+// const ms=pad(m);
+// const ss=pad(s);
+
+// document.getElementById('h1').textContent=hs[0];
+// document.getElementById('h2').textContent=hs[1];
+
+const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+ const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    
+function pad(n){
+    return String(n).padStart(2,'0');
 }
 
-showRandomJoke();
+ function tick() {
+      const now = new Date();            // grab current time
+      const h = now.getHours();          // 0–23
+      const m = now.getMinutes();        // 0–59
+      const s = now.getSeconds();        // 0–59
+ 
+      // Pad and split each value into individual digit characters
+      const hs = pad(h);
+      const ms = pad(m);
+      const ss = pad(s);
+ 
+      // Update each digit box
+      document.getElementById('h1').textContent = hs[0];
+      document.getElementById('h2').textContent = hs[1];
+      document.getElementById('m1').textContent = ms[0];
+      document.getElementById('m2').textContent = ms[1];
+      document.getElementById('s1').textContent = ss[0];
+      document.getElementById('s2').textContent = ss[1];
+
+      ['s1', 's2'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('active');
+        setTimeout(() => el.classList.remove('active'), 200);
+      });
+      const pct=(s/60)*100;
+      document.getElementById('sec-bar').style.width=pct+'%';
+      document.getElementById('sec-label').textContent=s+' /60';
+
+      const dateStr=days[now.getDay()]+','+months[now.getMonth()]+' '+
+      String(now.getDate()).padStart(2,'0')+','
+      +now.getFullYear();
+      document.getElementById('date-row').textContent=dateStr;
+ }
+
+ tick();
+ setInterval(tick,1000);
