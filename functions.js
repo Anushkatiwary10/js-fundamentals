@@ -224,11 +224,11 @@ function pad(n){
       ['s1', 's2'].forEach(id => {
         const el = document.getElementById(id);
         el.classList.add('active');
-        setTimeout(() => el.classList.remove('active'), 200);
+        setTimeout(() => el.classList.remove('active'), 2000);
       });
       const pct=(s/60)*100;
       document.getElementById('sec-bar').style.width=pct+'%';
-      document.getElementById('sec-label').textContent=s+' /60';
+      document.getElementById('sec-label').textContent=s+'/60';
 
       const dateStr=days[now.getDay()]+','+months[now.getMonth()]+' '+
       String(now.getDate()).padStart(2,'0')+','
