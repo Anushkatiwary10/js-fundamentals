@@ -29,3 +29,10 @@
 //     play=confirm("want to play again");
 // }
 // alert("thanks for playing!");
+// console.log("new");
+let arr = [1,2,3,4,5];
+let result = arr.map((element) => {
+    return element * element;
+});
+
+console.log(result); // [1, 4, 9, 16, 25]

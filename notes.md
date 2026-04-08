@@ -8,3 +8,4 @@ loops map
 filter
 reduce
 important methods
+digital clock completion
