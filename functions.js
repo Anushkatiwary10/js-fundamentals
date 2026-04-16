@@ -194,47 +194,67 @@
 // document.getElementById('h1').textContent=hs[0];
 // document.getElementById('h2').textContent=hs[1];
 
-const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
- const months = ['January','February','March','April','May','June',
-                    'July','August','September','October','November','December'];
+// const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+//  const months = ['January','February','March','April','May','June',
+//                     'July','August','September','October','November','December'];
     
-function pad(n){
-    return String(n).padStart(2,'0');
+// function pad(n){
+//     return String(n).padStart(2,'0');
+// }
+
+//  function tick() {
+//       const now = new Date();            // grab current time
+//       const h = now.getHours();          // 0–23
+//       const m = now.getMinutes();        // 0–59
+//       const s = now.getSeconds();        // 0–59
+ 
+//       // Pad and split each value into individual digit characters
+//       const hs = pad(h);
+//       const ms = pad(m);
+//       const ss = pad(s);
+ 
+//       // Update each digit box
+//       document.getElementById('h1').textContent = hs[0];
+//       document.getElementById('h2').textContent = hs[1];
+//       document.getElementById('m1').textContent = ms[0];
+//       document.getElementById('m2').textContent = ms[1];
+//       document.getElementById('s1').textContent = ss[0];
+//       document.getElementById('s2').textContent = ss[1];
+
+//       ['s1', 's2'].forEach(id => {
+//         const el = document.getElementById(id);
+//         el.classList.add('active');
+//         setTimeout(() => el.classList.remove('active'), 2000);
+//       });
+//       const pct=(s/60)*100;
+//       document.getElementById('sec-bar').style.width=pct+'%';
+//       document.getElementById('sec-label').textContent=s+'/60';
+
+//       const dateStr=days[now.getDay()]+','+months[now.getMonth()]+' '+
+//       String(now.getDate()).padStart(2,'0')+','
+//       +now.getFullYear();
+//       document.getElementById('date-row').textContent=dateStr;
+//  }
+
+//  tick();
+//  setInterval(tick,1000);
+
+let loadScript=(src)=>{
+  return new Promise((resolve,reject)=>{
+  let script=document.createElement("script");
+  script.type="text/javascript";
+  script.src=src;
+  document.body.appendChild(script)
+  script.onload=()=>{
+    resolve(1)
+  }
+  script.onerror=()=>{
+    reject(0)
+  }
+  })
 }
 
- function tick() {
-      const now = new Date();            // grab current time
-      const h = now.getHours();          // 0–23
-      const m = now.getMinutes();        // 0–59
-      const s = now.getSeconds();        // 0–59
- 
-      // Pad and split each value into individual digit characters
-      const hs = pad(h);
-      const ms = pad(m);
-      const ss = pad(s);
- 
-      // Update each digit box
-      document.getElementById('h1').textContent = hs[0];
-      document.getElementById('h2').textContent = hs[1];
-      document.getElementById('m1').textContent = ms[0];
-      document.getElementById('m2').textContent = ms[1];
-      document.getElementById('s1').textContent = ss[0];
-      document.getElementById('s2').textContent = ss[1];
-
-      ['s1', 's2'].forEach(id => {
-        const el = document.getElementById(id);
-        el.classList.add('active');
-        setTimeout(() => el.classList.remove('active'), 2000);
-      });
-      const pct=(s/60)*100;
-      document.getElementById('sec-bar').style.width=pct+'%';
-      document.getElementById('sec-label').textContent=s+'/60';
-
-      const dateStr=days[now.getDay()]+','+months[now.getMonth()]+' '+
-      String(now.getDate()).padStart(2,'0')+','
-      +now.getFullYear();
-      document.getElementById('date-row').textContent=dateStr;
- }
-
- tick();
- setInterval(tick,1000);
+let p1=loadScript("http://localhost:3000/index.js")
+p1.then((value)=>{
+  console.log(value)
+})
