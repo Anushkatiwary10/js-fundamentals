@@ -239,22 +239,25 @@
 //  tick();
 //  setInterval(tick,1000);
 
-let loadScript=(src)=>{
-  return new Promise((resolve,reject)=>{
-  let script=document.createElement("script");
-  script.type="text/javascript";
-  script.src=src;
-  document.body.appendChild(script)
-  script.onload=()=>{
-    resolve(1)
-  }
-  script.onerror=()=>{
-    reject(0)
-  }
+// 
+
+//exercise 9
+
+function showMsg(msg){
+  return new Promise((resolve)=>{
+     setTimeout(()=>{
+      const terminal=document.getElementById("terminal");
+      terminal.innerHTML+=msg+ "\n";
+      console.log(msg);
+      resolve();
+    },2000);
   })
 }
+async function hack() {
+  await showMsg("Initializing hack program");
+  await showMsg("Hacking Ashish's username");
+  await showMsg("Username found ashish17");
+  await showMsg("connectiong to facebook");
+}
 
-let p1=loadScript("http://localhost:3000/index.js")
-p1.then((value)=>{
-  console.log(value)
-})
+hack();
